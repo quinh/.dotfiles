@@ -1,0 +1,2 @@
+[global]
+    format = "<span font="Ubuntu" weight="bold">%s</span>\n<span font="Ubuntu" bgcolor="#004a1c" fgcolor="#004a1c">%s %s %s %s %s</span>\n<span font="Ubuntu" style="italic">%b</span>

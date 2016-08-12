@@ -218,7 +218,8 @@ bar {
 #        status_command i3status
 #        tray_output primary
 #}
-
+exec killall -q xfce4-notifyd
+exec --no-startup-id dunst -config ~/.dunstrc
 exec --no-startup-id terminator -p material
 exec --no-startup-id firefox
 exec --no-startup-id sublime
