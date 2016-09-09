@@ -4,19 +4,21 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #
-
+# packages: scrot rofi dunst arandr xrandr xmodmap imagemagick i3lock
+# fonts: font-awesome consolas droid sans mono
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 exec --no-startup-id xrdb -load ~/.Xresources
-exec --no-startup-id xrandr --output VGA-1 --mode 1920x1080 --pos 1920x0 --rotate normal --primary --output VGA-2 --mode 1920x1080 --pos 0x0 --rotate normal
+exec --no-startup-id xrandr --output VGA-1 --off --output VIRTUAL1 --off --output HDMI1 --off --output HDMI-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output DVI-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output VGA1 --off
+#exec --no-startup-id xrandr --output VGA-1 --mode 1920x1080 --pos 1920x0 --rotate normal --primary --output VGA-2 --mode 1920x1080 --pos 0x0 --rotate normal
 
 set $mod Mod1
 set $mod2 Mod4
 # make bar-less windows
 new_window 1pixel
-
-exec --no-startup-id "i3-msg 'workspace 3: ; append_layout /home/quin/.config/i3/workspace3.json'"
+exec --no-startup-id xinput --set-prop 9 282 2.5
+exec --no-startup-id "i3-msg 'workspace 3: ; append_layout /home/mbender/.config/i3/ws3.json'"
 
 # give workspaces names
 set $workspace1  "1: |"
@@ -33,15 +35,15 @@ set $workspace9  "9:"
 # VGA-1 mid
 # VGA-2 right
 #
-workspace $workspace1 output VGA-1
-workspace $workspace2 output VGA-1
-workspace $workspace3 output VGA-2
-workspace $workspace4 output VGA-2
-workspace $workspace5 output VGA-2
-workspace $workspace6 output VGA-2
-workspace $workspace7 output VGA-2
-workspace $workspace8 output VGA-2
-workspace $workspace9 output VGA-2
+workspace $workspace1 output DVI-0
+workspace $workspace2 output DVI-O
+workspace $workspace3 output HDMI-1
+workspace $workspace4 output HDMI-1
+workspace $workspace5 output DVI-O 
+workspace $workspace6 output DVI-O 
+workspace $workspace7 output DVI-O 
+workspace $workspace8 output DVI-O 
+workspace $workspace9 output DVI-O 
 
 # assign default targets for applications
 
@@ -101,6 +103,9 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec terminator -p retro-groove-soft
+
+# lock screen
+bindsym $mod2+l exec scrot -e 'convert $f -blur 5x5 $f && i3lock -i $f && rm $f'
 
 # kill focused window
 bindsym $mod+q kill
