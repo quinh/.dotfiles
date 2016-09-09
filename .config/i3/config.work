@@ -157,10 +157,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod2+space floating toggle
+bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod2+Shift+space focus mode_toggle
+bindsym $mod2+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -224,7 +224,7 @@ bar {
 #}
 exec killall -q xfce4-notifyd
 exec --no-startup-id dunst -config ~/.dunstrc
-exec --no-startup-id terminator -p retro-groove-soft
+exec --no-startup-id terminator -p material
 exec --no-startup-id firefox
 exec --no-startup-id sublime
 exec --no-startup-id spotify
